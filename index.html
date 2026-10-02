@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>WebToolBox — Modern Web Tools</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="splash-logo">
+    <span>W</span>
+  </div>
+  <h1>WebToolBox</h1>
+  <p>Powerful tools. One place.</p>
+  <div class="loader"><i></i></div>
+</div>
+
+<div class="bg-orb orb1"></div>
+<div class="bg-orb orb2"></div>
+
+<header class="navbar">
+  <div class="brand" onclick="goHome()">
+    <div class="brand-logo">W</div>
+    <span>WebToolBox</span>
+  </div>
+
+  <nav>
+    <button onclick="goHome()">Home</button>
+    <button onclick="showSection('favorites')">⭐ Favorites</button>
+    <button onclick="showSection('recent')">🕘 Recent</button>
+    <button onclick="openProfile()">👤 Profile</button>
+  </nav>
+
+  <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☾</button>
+</header>
+
+<main>
+
+<section id="home">
+
+  <div class="hero">
+    <div class="hero-badge">⚡ 100% Browser Based</div>
+    <h1>Everyday tools.<br><span>Supercharged.</span></h1>
+    <p>QR, text, security, calculators, developer tools & image tools — all in one beautiful toolbox.</p>
+
+    <div class="search-box">
+      <span>⌕</span>
+      <input id="searchInput" oninput="searchTools()" placeholder="Search a tool...">
+      <kbd>⌘ K</kbd>
+    </div>
+  </div>
+
+  <div class="category-row">
+    <button class="cat active" onclick="filterTools('all',this)">All</button>
+    <button class="cat" onclick="filterTools('qr',this)">QR</button>
+    <button class="cat" onclick="filterTools('text',this)">Text</button>
+    <button class="cat" onclick="filterTools('security',this)">Security</button>
+    <button class="cat" onclick="filterTools('calc',this)">Calculators</button>
+    <button class="cat" onclick="filterTools('dev',this)">Developer</button>
+    <button class="cat" onclick="filterTools('image',this)">Image</button>
+  </div>
+
+  <section class="tool-section">
+    <div class="section-title">
+      <div>
+        <small>EXPLORE</small>
+        <h2>Powerful Tools</h2>
+      </div>
+      <span id="toolCount">18 tools</span>
+    </div>
+
+    <div id="toolsGrid" class="tools-grid"></div>
+  </section>
+
+</section>
+
+<!-- FAVORITES -->
+<section id="favorites" class="hidden page-section">
+  <div class="page-head">
+    <small>YOUR COLLECTION</small>
+    <h2>⭐ Favorites</h2>
+  </div>
+  <div id="favoriteGrid" class="tools-grid"></div>
+</section>
+
+<!-- RECENT -->
+<section id="recent" class="hidden page-section">
+  <div class="page-head">
+    <small>YOUR ACTIVITY</small>
+    <h2>🕘 Recently Used</h2>
+  </div>
+  <div id="recentGrid" class="tools-grid"></div>
+</section>
+
+<!-- DEVELOPER -->
+<section class="developer">
+  <div class="dev-card">
+    <div class="dev-avatar">Y</div>
+    <div>
+      <small>CREATED BY</small>
+      <h2>Yogesh</h2>
+      <p>Modern Websites • Web Apps • Digital Solutions</p>
+    </div>
+
+    <div class="dev-links">
+      <a href="mailto:yogeshjamane4@gmail.com">✉ Gmail</a>
+      <a href="https://instagram.com/Yogeshwebcraft07" target="_blank">◎ Instagram</a>
+      <a href="https://wa.me/918217754975" target="_blank">☘ WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- TOOL MODAL -->
+<div id="toolModal" class="modal">
+  <div class="modal-box">
+    <button class="close" onclick="closeTool()">×</button>
+
+    <div class="modal-icon" id="modalIcon"></div>
+    <div class="modal-head">
+      <small id="modalCategory"></small>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+    </div>
+
+    <div id="toolBody"></div>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<div id="profileModal" class="modal">
+  <div class="modal-box profile-box">
+    <button class="close" onclick="closeProfile()">×</button>
+    <div class="profile-icon">👤</div>
+    <h2>Local Profile</h2>
+    <p>Your profile stays only on this device.</p>
+
+    <input id="profileName" class="input" placeholder="Enter your name">
+
+    <button class="primary full" onclick="saveProfile()">
+      Continue ✨
+    </button>
+
+    <div id="profileResult"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
